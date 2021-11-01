@@ -2,14 +2,14 @@ package ua.ithillel.current;
 
 import java.util.Scanner;
 
-public class PlayerCoordinateFinder implements CoordinateFinder {
+public class PlayerData implements Data {
 
     private static final char PLAYER_SYMBOL = 'X';
 
     private final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public MoveResult findCoordinate() {
+    public MoveResult getData() {
         int vertical = chooseCoordinate('v');
         int horizontal = chooseCoordinate('h');
         return new MoveResult(PLAYER_SYMBOL, new Coordinate(vertical, horizontal));

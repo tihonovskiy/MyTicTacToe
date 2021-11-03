@@ -5,8 +5,13 @@ import java.util.Scanner;
 public class PlayerData implements Data {
 
     private static final char PLAYER_SYMBOL = 'X';
+    private int fieldSize;
 
     private final Scanner scanner = new Scanner(System.in);
+
+    public PlayerData(int fieldSize) {
+        this.fieldSize = fieldSize;
+    }
 
     @Override
     public MoveResult getData() {
@@ -19,9 +24,9 @@ public class PlayerData implements Data {
         int coordinate;
 
         do {
-            System.out.printf("Please enter %s-coordinate [1-3] ...%n", coordinateSymbol);
+            System.out.printf("Please enter %s-coordinate [1-%d] ...%n", coordinateSymbol, fieldSize);
             coordinate = scanner.nextInt() - 1;
-        } while (coordinate < 0 || coordinate >= 3);
+        } while (coordinate < 0 || coordinate >= fieldSize);
 
         return coordinate;
     }

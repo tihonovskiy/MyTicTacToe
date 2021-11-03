@@ -3,15 +3,22 @@ package ua.ithillel.current;
 public class TicTacToe {
     private static final char EMPTY_SYMBOL = '-';
 
-    private final char[][] field = {
-            {EMPTY_SYMBOL, EMPTY_SYMBOL, EMPTY_SYMBOL},
-            {EMPTY_SYMBOL, EMPTY_SYMBOL, EMPTY_SYMBOL},
-            {EMPTY_SYMBOL, EMPTY_SYMBOL, EMPTY_SYMBOL},
-    };
+    private char[][] field;
+    private int size;
+
+    public TicTacToe(int size) {
+        field = new char[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                field[i][j] = EMPTY_SYMBOL;
+            }
+        }
+        this.size = size;
+    }
 
     public void start() {
-        Data playerMoveAction = new PlayerData();
-        Data aiMoveAction = new AIdata();
+        Data playerMoveAction = new PlayerData(size);
+        Data aiMoveAction = new AIdata(size);
 
         for (int i = 0; i < field.length * field[0].length; i++) {
             drawField();

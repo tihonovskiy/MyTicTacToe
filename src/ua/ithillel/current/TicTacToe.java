@@ -29,6 +29,13 @@ public class TicTacToe {
                 drawField();
                 break;
             }
+
+            if (checkDraw()) {
+                System.out.println("It is draw!!!");
+                drawField();
+                break;
+            }
+
             doMove(aiMoveAction);
             if(checkWin()) {
                 System.out.println("You Lose!!!");
